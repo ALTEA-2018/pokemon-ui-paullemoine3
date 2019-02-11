@@ -37,12 +37,13 @@
                     <span class="badge badge-primary">Defense : {{stats.defense}}</span>
                     <span class="badge badge-primary">HP : {{stats.hp}}</span>
                 </div>
-                Types :
                 <div class="card-footer">
-                    {{#types}}
-
-                    <span class="badge badge-primary">{{.}}</span>
-                    {{/types}}
+                Types :
+                    <div>
+                        {{#types}}
+                        <span class="badge badge-primary">{{.}}</span>
+                        {{/types}}
+                    </div>
                 </div>
             </div>
         </div>

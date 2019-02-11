@@ -1,6 +1,5 @@
 package com.miage.altea.tp.pokemon_ui.pokemonTypes.bo;
 
-import org.springframework.boot.SpringApplication;
 
 import java.util.List;
 
