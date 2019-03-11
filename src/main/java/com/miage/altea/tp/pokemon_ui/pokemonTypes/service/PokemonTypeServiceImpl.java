@@ -34,6 +34,16 @@ public class PokemonTypeServiceImpl implements PokemonTypeService {
         return listPT;
     }
 
+    @Override
+    public PokemonType getPokemonId(int id) {
+        var headers = new HttpHeaders();
+        headers.setAcceptLanguageAsLocales(List.of(LocaleContextHolder.getLocale()));
+        var httpRequest = new HttpEntity<>(headers);
+        PokemonType pokeType;
+        pokeType = rT.getForObject(this.pokemonServiceUrl+this.base_url+id, PokemonType.class, httpRequest);
+        return pokeType;
+    }
+
     @Autowired
     @Override
     public void setRestTemplate(RestTemplate restTemplate) {
