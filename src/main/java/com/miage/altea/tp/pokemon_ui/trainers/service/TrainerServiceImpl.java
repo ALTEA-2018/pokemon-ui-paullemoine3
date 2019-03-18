@@ -1,6 +1,5 @@
 package com.miage.altea.tp.pokemon_ui.trainers.service;
 
-import com.miage.altea.tp.pokemon_ui.pokemonTypes.bo.PokemonType;
 import com.miage.altea.tp.pokemon_ui.trainers.bo.Trainer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -16,7 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Service
-public class TrainerServiceImpl implements TrainerService{
+public class TrainerServiceImpl implements TrainerService {
 
     String trainerServiceUrl;
 
@@ -36,6 +35,13 @@ public class TrainerServiceImpl implements TrainerService{
         return listTrainers;
     }
 
+    @Override
+    public Trainer getTrainer(String name){
+        Trainer trainer;
+        trainer = rT.getForObject(this.trainerServiceUrl+this.base_url+"{name}", Trainer.class, name);
+        return trainer;
+    }
+
     @Autowired
     @Override
     @Qualifier("trainerApiRestTemplate")
@@ -48,4 +54,6 @@ public class TrainerServiceImpl implements TrainerService{
     public void setTrainerServiceUrl(String trainerService) {
         this.trainerServiceUrl= trainerService;
     }
+
+
 }

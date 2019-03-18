@@ -1,7 +1,11 @@
 package com.miage.altea.tp.pokemon_ui.trainers.bo;
 
 import com.miage.altea.tp.pokemon_ui.pokemonTypes.bo.PokemonType;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
+import java.util.Collection;
 import java.util.List;
 
 public class Trainer {
@@ -11,6 +15,8 @@ public class Trainer {
     private List<Pokemon> team;
 
     private List<PokemonType> listPk;
+
+    private String password;
 
     public Trainer() {
     }
@@ -38,4 +44,12 @@ public class Trainer {
     public void setListPoke(List<PokemonType> listPkType) { this.listPk = listPkType;}
 
     public List<PokemonType> getListPk(){return this.listPk;}
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

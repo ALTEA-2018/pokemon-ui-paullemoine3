@@ -7,8 +7,9 @@ import java.util.List;
 
 public interface TrainerService {
 
-    public List<Trainer> listTrainers();
-    public void setRestTemplate(RestTemplate restTemplate);
-    public void setTrainerServiceUrl(String trainerService);
+    List<Trainer> listTrainers();
+    void setRestTemplate(RestTemplate restTemplate);
+    void setTrainerServiceUrl(String trainerService);
+    Trainer getTrainer(String name);
 
 }
