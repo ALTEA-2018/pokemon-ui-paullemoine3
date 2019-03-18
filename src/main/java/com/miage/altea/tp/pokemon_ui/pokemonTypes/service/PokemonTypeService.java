@@ -10,6 +10,8 @@ public interface PokemonTypeService {
     List<PokemonType> listPokemonsTypes();
     void setRestTemplate(RestTemplate restTemplate);
     void setPokemonTypeServiceUrl(String pokemonServiceUrl);
-    public PokemonType getPokemonId(int id);
+    PokemonType getPokemonId(int id);
+    public PokemonType getPokemonType(int id);
+    List<PokemonType> getVoidlistPokemons();
 
 }

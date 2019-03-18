@@ -17,8 +17,10 @@ import java.util.List;
 @RequestMapping(value="/trainers")
 public class TrainerController {
 
+    @Autowired
     TrainerService trainerService;
 
+    @Autowired
     PokemonTypeService pokeTypeServ;
 
 
