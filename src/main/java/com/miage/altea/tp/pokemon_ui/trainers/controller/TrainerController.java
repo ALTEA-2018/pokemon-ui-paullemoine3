@@ -14,7 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.ArrayList;
 import java.util.List;
 @Controller
-@RequestMapping(value="/trainers")
 public class TrainerController {
 
     @Autowired
@@ -24,7 +23,7 @@ public class TrainerController {
     PokemonTypeService pokeTypeServ;
 
 
-    @GetMapping(value="/")
+    @RequestMapping(value="/trainers")
     public ModelAndView trainers(){
         ModelAndView model = new ModelAndView();
         List<Trainer> listTrainer = trainerService.listTrainers();
@@ -37,7 +36,7 @@ public class TrainerController {
             t.setListPoke(listPokeType);
         }
 
-        model.setViewName("trainer");
+        model.setViewName("trainers");
         model.addObject("trainers", listTrainer);
         return model;
     }

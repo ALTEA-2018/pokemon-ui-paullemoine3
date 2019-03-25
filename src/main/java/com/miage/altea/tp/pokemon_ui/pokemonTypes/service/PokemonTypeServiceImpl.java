@@ -72,7 +72,6 @@ public class PokemonTypeServiceImpl implements PokemonTypeService {
     }
 
     @Override
-    @Value("")
     public List<PokemonType> getVoidlistPokemons(){
         List<PokemonType> listPT = new ArrayList<>();
         return listPT;

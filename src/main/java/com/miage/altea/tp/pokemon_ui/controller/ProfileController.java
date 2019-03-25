@@ -25,8 +25,6 @@ public class ProfileController {
     @Autowired
     PokemonTypeService pokemonTypeService;
 
-    SecurityContextHolder securityContextHolde;
-
     @GetMapping(value="/profile")
     public ModelAndView pokedex(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
