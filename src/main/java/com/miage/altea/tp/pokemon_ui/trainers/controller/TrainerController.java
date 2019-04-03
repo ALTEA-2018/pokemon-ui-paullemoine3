@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Controller
 public class TrainerController {
 
@@ -24,15 +27,16 @@ public class TrainerController {
 
 
     @RequestMapping(value="/trainers")
-    public ModelAndView trainers(){
+    public ModelAndView trainers(Principal principal){
         ModelAndView model = new ModelAndView();
         List<Trainer> listTrainer = trainerService.listTrainers();
-
+        listTrainer = listTrainer.stream().filter(t -> !t.getName().equals(principal.getName())).collect(Collectors.toList());
         for(Trainer t : listTrainer) {
             List<PokemonType> listPokeType = new ArrayList<>();
             for (Pokemon p : t.getTeam()) {
                 listPokeType.add(pokeTypeServ.getPokemonId(p.getPokemonType()));
             }
+
             t.setListPoke(listPokeType);
         }
 
